@@ -2,12 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:trolly_revamp/presentation/pages/home_screen.dart';
+import 'package:trolly_revamp/presentation/pages/register_screen.dart';
 import 'package:trolly_revamp/utils/colors.dart';
 import 'package:trolly_revamp/utils/constatnt.dart';
-import 'package:trolly_revamp/widgets/language_translation_btn.dart';
+import 'package:trolly_revamp/presentation/widgets/language_translation_btn.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  void getHomePage() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => HomeScreen(),
+      ),
+    );
+  }
+
+  void getRegisterPage() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => RegisterScreen(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +147,7 @@ class LoginScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: getHomePage,
                 child: Text(
                   'Login',
                   style: GoogleFonts.hindMadurai(
@@ -149,15 +172,18 @@ class LoginScreen extends StatelessWidget {
                       color: HexColor('#272727'),
                     ),
                   ),
-                  TextSpan(
-                    text: ' Rgister ',
-                    style: GoogleFonts.hindMadurai(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.orange,
-                        decoration: TextDecoration.underline),
-                  ),
                 ],
+              ),
+            ),
+            InkWell(
+              onTap: getRegisterPage,
+              child: Text(
+                ' Rgister',
+                style: GoogleFonts.hindMadurai(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.orange,
+                    decoration: TextDecoration.underline),
               ),
             ),
             const SizedBox(height: 56),
@@ -165,12 +191,15 @@ class LoginScreen extends StatelessWidget {
               child: Container(
                 // color: Colors.red,
                 alignment: Alignment.bottomRight,
-                child: Text(
-                  'Skip',
-                  style: GoogleFonts.hindMadurai(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.underline),
+                child: InkWell(
+                  onTap: getHomePage,
+                  child: Text(
+                    'Skip',
+                    style: GoogleFonts.hindMadurai(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline),
+                  ),
                 ),
               ),
             ),

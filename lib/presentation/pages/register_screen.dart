@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:trolly_revamp/presentation/pages/home_screen.dart';
+import 'package:trolly_revamp/presentation/pages/login_screen.dart';
 import 'package:trolly_revamp/utils/colors.dart';
 import 'package:trolly_revamp/utils/constatnt.dart';
 
 class RegisterScreen extends StatefulWidget {
-  RegisterScreen({super.key});
+  const RegisterScreen({super.key});
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -24,6 +26,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   String selectedValue = "Select Gender";
   String? selectedGender;
+
+  void getHomePage() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => HomeScreen(),
+      ),
+    );
+  }
+
+  void getLoginPage() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => LoginScreen(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -252,7 +270,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8)),
               ),
-              onPressed: () {},
+              onPressed: getHomePage,
               child: Text(
                 'Sign Up',
                 style: GoogleFonts.hindMadurai(
@@ -277,26 +295,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     color: HexColor('#272727'),
                   ),
                 ),
-                TextSpan(
-                  text: ' Login',
-                  style: GoogleFonts.hindMadurai(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.orange,
-                      decoration: TextDecoration.underline),
-                ),
               ],
+            ),
+          ),
+          InkWell(
+            onTap: getLoginPage,
+            child: Text(
+              ' Login',
+              style: GoogleFonts.hindMadurai(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.orange,
+                  decoration: TextDecoration.underline),
             ),
           ),
           const SizedBox(height: 56),
           Container(
             alignment: Alignment.topRight,
-            child: Text(
-              'Skip',
-              style: GoogleFonts.hindMadurai(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  decoration: TextDecoration.underline),
+            child: InkWell(
+              onTap: getHomePage,
+              child: Text(
+                'Skip',
+                style: GoogleFonts.hindMadurai(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    decoration: TextDecoration.underline),
+              ),
             ),
           ),
           const SizedBox(height: 36),
