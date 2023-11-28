@@ -52,9 +52,17 @@ const String bathingEssentialsImg =
 
 // Categories Cubes Images
 
-const String drinksImg = "assets/images/category_cubes/drinks.svg";
+const String drinksImg = "assets/images/category_cubes/drinks.png";
 const String grocery = "assets/images/category_cubes/grocery.png";
 const String chicken = "assets/images/category_cubes/chickens.png";
+const String bathingEssentials =
+    "assets/images/category_cubes/bathing_essentials.png";
+const String biscuit = "assets/images/category_cubes/biscuit.png";
+const String snacks = "assets/images/category_cubes/snacks.png";
+const String makeup = "assets/images/category_cubes/makeup.png";
+const String dairyProducts = "assets/images/category_cubes/dairy_products.png";
+const String cleaningEssentials =
+    "assets/images/category_cubes/cleaning_essentials.png";
 
 //Profile Icons
 

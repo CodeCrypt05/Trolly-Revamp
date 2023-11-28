@@ -1,11 +1,13 @@
-class Categories {
+import 'package:flutter/material.dart';
+
+class CategoriesModel {
   final String categoryName;
   final String categoryImages;
-  final String categoryBoxColor;
+  final Color categoryBoxColor;
 
-  Categories(
-    this.categoryBoxColor, {
+  CategoriesModel({
     required this.categoryName,
     required this.categoryImages,
+    required this.categoryBoxColor,
   });
 }
