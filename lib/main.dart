@@ -5,6 +5,7 @@ import 'package:trolly_revamp/presentation/pages/home_screen.dart';
 import 'package:trolly_revamp/presentation/pages/login_screen.dart';
 import 'package:trolly_revamp/presentation/pages/profile_screen.dart';
 import 'package:trolly_revamp/presentation/pages/register_screen.dart';
+import 'package:trolly_revamp/presentation/widgets/profile_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
               background: Color.fromARGB(250, 255, 255, 255)),
           useMaterial3: true,
         ),
-        home: HomeScreen(),
+        home: ProfileWidget(),
       ),
     );
   }
